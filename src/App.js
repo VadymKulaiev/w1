@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  const[randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * 100) + 1);
+
+  const changeRandomNumber = () => {
+    setRandomNumber((Math.floor(Math.random() * 100) + 1));
+  }
+
+  return(
+    <>
+    <h3>Випадкове число: {randomNumber}</h3>
+    <button onClick={changeRandomNumber}>Показати</button>
+    </>
   );
 }
 
